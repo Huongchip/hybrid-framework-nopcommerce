@@ -19,6 +19,10 @@ public class BasePage {
 
 	private long longTimeout = 30;
 	
+	public static BasePage getBasePageObject() {
+		return new BasePage();
+	}
+	
 	public void openPageUrl(WebDriver driver, String pageUrl) {
 		driver.get(pageUrl);
 	}
@@ -100,15 +104,15 @@ public class BasePage {
 		}
 	}
 	
-	public By getByXpath(String xpathLocator) {
+	private By getByXpath(String xpathLocator) {
 		return By.xpath(xpathLocator);
 	}
 	
-	public WebElement getWebElement(WebDriver driver, String xpathLocator) {
+	private WebElement getWebElement(WebDriver driver, String xpathLocator) {
 		return driver.findElement(getByXpath(xpathLocator));
 	}
 	
-	public List <WebElement> getListElement(WebDriver driver, String xpathLocator){
+	private List <WebElement> getListElement(WebDriver driver, String xpathLocator){
 		return driver.findElements(getByXpath(xpathLocator));
 	}
 	
