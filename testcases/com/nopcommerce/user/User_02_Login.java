@@ -115,7 +115,6 @@ public class User_02_Login extends BasePage {
 		Assert.assertEquals(actualUrl, expectedUrl);
 	}
 	
-
 	
 	@AfterClass
 	public void afterClass() {
