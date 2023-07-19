@@ -15,10 +15,15 @@ public class User_01_Register {
   WebDriver driver;
   String emailAddress;
   String projectPath =  System.getProperty("user.dir");
+  String osName = System.getProperty("os.name");
   
   @BeforeClass
   public void beforeClass() {
-	  System.setProperty("webdriver.gecko.driver", projectPath + "/browserDrivers/geckodriver");
+		if (osName.contains("Windows")) {
+			System.setProperty("webdriver.gecko.driver", projectPath + "\\browserDrivers\\geckodriver.exe");
+		} else {
+			System.setProperty("webdriver.gecko.driver", projectPath + "/browserDrivers/geckodriver");
+		}
 		driver = new FirefoxDriver();
 		emailAddress = "afc@gmail.com";
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
